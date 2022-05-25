@@ -56,7 +56,8 @@ class SignUpView extends StatelessWidget {
                           MyTextField.textField(
                               text: "Enter your phone number...",
                               controller: phoneController,
-                              validator: CheckValidator.emailValidator),
+                              validator: CheckValidator.phoneValidator
+                              ),
                           SizedBox(height: context.h * 0.01),
                           const Center(
                             child: Text(

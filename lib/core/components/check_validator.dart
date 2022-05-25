@@ -52,4 +52,13 @@ class CheckValidator {
     }
     return null;
   }
+
+    static String? phoneValidator(String? content){
+    if(content!.isEmpty){
+      return 'fill the gap';
+    }else if(!RegExp(r"^\+?0[0-9]{10}$").hasMatch(content)){
+      return "Please, enter phone number only";
+    }
+    return null;
+  }
 }
