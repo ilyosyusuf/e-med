@@ -1,10 +1,13 @@
 import 'package:emed/core/components/check_validator.dart';
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
+import 'package:emed/screens/authentication/cubit/auth_cubit.dart';
+import 'package:emed/screens/authentication/state/auth_state.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
 import 'package:emed/widgets/textformwidget/text_form_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpView extends StatelessWidget {
   SignUpView({Key? key}) : super(key: key);
@@ -56,8 +59,7 @@ class SignUpView extends StatelessWidget {
                           MyTextField.textField(
                               text: "Enter your phone number...",
                               controller: phoneController,
-                              validator: CheckValidator.phoneValidator
-                              ),
+                              validator: CheckValidator.phoneValidator),
                           SizedBox(height: context.h * 0.01),
                           const Center(
                             child: Text(
@@ -68,21 +70,25 @@ class SignUpView extends StatelessWidget {
                           const Text("Create password",
                               style: FStyles.headline3s),
                           SizedBox(height: context.h * 0.01),
-                          MyTextField.textField(
-                              text: "Enter your new password...",
-                              controller: passwordController,
-                              validator: CheckValidator.passwordValidator,
-                              iconButton: IconButton(
-                                  onPressed: () {
-                                    // remove_red_eye icon will be worked with cubit
-                                  },
-                                  icon: Icon(Icons.remove_red_eye))),
+                          StatefulBuilder(builder: (context, setState) {
+                            return MyTextField.textField(
+                                text: "Enter your new password...",
+                                controller: passwordController,
+                                validator: CheckValidator.passwordValidator,
+                                isShown: context.watch<AuthCubit>().getShown,
+                                iconButton: IconButton(
+                                    onPressed: () {
+                                      context.read<AuthCubit>().obSecure();
+                                      setState(() {});
+                                    },
+                                    icon: Icon(Icons.remove_red_eye)));
+                          }),
                           const Spacer(),
                           ButtonWidgets(
                             child: Text("Continue"),
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                // next page will be emited this position
+                                context.read<AuthCubit>().changeState(AuthConfirmation());
                               }
                             },
                             width: context.w,

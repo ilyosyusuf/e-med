@@ -11,12 +11,14 @@ class MyTextField {
     var onChanged,
     VoidCallback? onTap,
     FormFieldValidator<String>? validator,
+    bool isShown = false,
   }) {
     return TextFormField(
         controller: controller,
         readOnly: read,
         onChanged: onChanged,
         onTap: onTap,
+        obscureText: isShown,
         decoration: InputDecoration(
           hintText: text,
           hintStyle: const TextStyle(color: Colors.grey),

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'E-med',
       theme: MainTheme.apptheme,
       navigatorKey: NavigationService.instance.navigatorKey,
-      initialRoute: '/signupview',
+      initialRoute: '/mainauthview',
       onGenerateRoute: MyRoute.instance.onGenerateRoute,
     );
   }
