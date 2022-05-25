@@ -1,3 +1,5 @@
+import 'package:emed/config/init/navigation/navigator.dart';
+import 'package:emed/config/routes/page_routes.dart';
 import 'package:emed/config/themes/main_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'E-med',
       theme: MainTheme.apptheme,
-      home: MyHomePage(),
+      navigatorKey: NavigationService.instance.navigatorKey,
+      initialRoute: '/signupview',
+      onGenerateRoute: MyRoute.instance.onGenerateRoute,
     );
   }
 }

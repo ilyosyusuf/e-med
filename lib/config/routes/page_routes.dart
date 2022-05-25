@@ -1,3 +1,4 @@
+import 'package:emed/screens/authentication/view/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class MyRoute {
@@ -8,8 +9,8 @@ class MyRoute {
   Route? onGenerateRoute(RouteSettings settings) {
     var args = settings.arguments;
     switch (settings.name) {
-      case '/home':
-      default:
+      case'/signupview':
+       return _pages(SignUpView());
     }
   }
     _pages(Widget page){
