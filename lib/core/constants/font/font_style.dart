@@ -4,7 +4,7 @@ import 'package:emed/core/constants/font/font_weight.dart';
 import 'package:flutter/material.dart';
 
 class FStyles {
-  static const TextStyle headline1s = TextStyle(fontSize: FSize.extraLarge);
+  static const TextStyle headline1s = TextStyle(fontSize: FSize.extraLarge, fontWeight: FWeight.bold);
   static const TextStyle headline2s = TextStyle(fontSize: FSize.large, fontWeight: FWeight.bold);
   static const TextStyle headline3blue = TextStyle(fontSize: FSize.medium, fontWeight: FWeight.bold, color: ColorConst.kPrimaryColor);
   static const TextStyle headline3s = TextStyle(fontSize: FSize.medium, fontWeight: FWeight.bold);
