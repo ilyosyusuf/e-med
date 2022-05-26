@@ -5,8 +5,10 @@ import 'package:emed/core/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget {
-  const AppBarWidget({
+  String text;
+  AppBarWidget({
     Key? key,
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -29,7 +31,7 @@ class AppBarWidget extends StatelessWidget {
           ),
 
           Spacer(),
-          Text("Sign Up", style: FStyles.headline2s),
+          Text(text, style: FStyles.headline2s),
           Spacer(),
           SizedBox(width: context.w * 0.2,)
         ],

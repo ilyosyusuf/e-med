@@ -9,8 +9,8 @@ import 'package:emed/widgets/textformwidget/text_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpView extends StatelessWidget {
-  SignUpView({Key? key}) : super(key: key);
+class SignInView extends StatelessWidget {
+  SignInView({Key? key}) : super(key: key);
 
   // all formfields will be come from cubit
   TextEditingController nameController = TextEditingController();
@@ -27,7 +27,7 @@ class SignUpView extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               child: Column(
-                children: [AppBarWidget(text: "Sign Up"), Divider(thickness: 1)],
+                children: [AppBarWidget(text: "Log In"), Divider(thickness: 1)],
               ),
             ),
             Expanded(
@@ -42,17 +42,13 @@ class SignUpView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: context.h * 0.04),
-                          const Text(
-                              'Sign up in order to get a full access to the system',
-                              style: FStyles.headline4s,
-                              textAlign: TextAlign.center),
+                          const Center(
+                            child: Text(
+                                'Log in to your account',
+                                style: FStyles.headline4s,
+                                textAlign: TextAlign.center),
+                          ),
                           SizedBox(height: context.h * 0.04),
-                          const Text("Full name", style: FStyles.headline3s),
-                          SizedBox(height: context.h * 0.01),
-                          MyTextField.textField(
-                              text: "Enter your full name...",
-                              controller: nameController,
-                              validator: CheckValidator.nameValidator),
                           SizedBox(height: context.h * 0.04),
                           const Text("Phone number", style: FStyles.headline3s),
                           SizedBox(height: context.h * 0.01),
@@ -60,14 +56,8 @@ class SignUpView extends StatelessWidget {
                               text: "Enter your phone number...",
                               controller: phoneController,
                               validator: CheckValidator.phoneValidator),
-                          SizedBox(height: context.h * 0.01),
-                          const Center(
-                            child: Text(
-                                "We will send confirmation code to this number",
-                                style: FStyles.headline52),
-                          ),
-                          SizedBox(height: context.h * 0.035),
-                          const Text("Create password",
+                          SizedBox(height: context.h * 0.04),
+                          const Text("Your password",
                               style: FStyles.headline3s),
                           SizedBox(height: context.h * 0.01),
                           StatefulBuilder(builder: (context, setState) {
@@ -83,7 +73,7 @@ class SignUpView extends StatelessWidget {
                                     },
                                     icon: Icon(Icons.remove_red_eye)));
                           }),
-                          const Spacer(),
+                          SizedBox(height: context.h * 0.04),
                           ButtonWidgets(
                             child: Text("Continue"),
                             onPressed: () {
@@ -94,7 +84,6 @@ class SignUpView extends StatelessWidget {
                             width: context.w,
                             height: context.h * 0.07,
                           ),
-                          SizedBox(height: context.h * 0.04),
                         ],
                       ),
                     ),

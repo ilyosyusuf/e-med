@@ -1,4 +1,5 @@
 import 'package:emed/screens/authentication/view/mainview/main_view.dart';
+import 'package:emed/screens/authentication/view/pages/signin_view.dart';
 import 'package:emed/screens/authentication/view/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,10 +11,14 @@ class MyRoute {
   Route? onGenerateRoute(RouteSettings settings) {
     var args = settings.arguments;
     switch (settings.name) {
+            case '/mainauthview':
+        return _pages(MainAuthView());
       case '/signupview':
         return _pages(SignUpView());
-      case '/mainauthview':
-        return _pages(MainAuthView());
+      case '/signinview':
+        return _pages(SignInView());
+
+
     }
   }
 

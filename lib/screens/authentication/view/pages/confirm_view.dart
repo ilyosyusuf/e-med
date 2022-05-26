@@ -1,10 +1,14 @@
 
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
+import 'package:emed/screens/authentication/cubit/auth_cubit.dart';
+import 'package:emed/screens/authentication/state/auth_state.dart';
+import 'package:emed/screens/authentication/view/pages/signin_view.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
 import 'package:emed/widgets/numinputwidget/num_input_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ConFirmationView extends StatelessWidget {
   const ConFirmationView({Key? key}) : super(key: key);
@@ -13,14 +17,21 @@ class ConFirmationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: ButtonWidgets(
-          child: const Text('Confirm'),
-          onPressed: () {}),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 40.0),
+        child: ButtonWidgets(
+            child: const Text('Confirm'),
+            // width: context.w,
+            height: context.h * 0.07,
+            onPressed: () {
+              context.read<AuthCubit>().changeState(AuthSignIn());
+            }),
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const AppBarWidget(),
+            AppBarWidget(text: "Sign Up",),
             SizedBox(height: context.h * 0.060),
             Padding(
               padding: EdgeInsets.all(15.0),

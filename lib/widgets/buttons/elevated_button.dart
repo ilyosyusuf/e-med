@@ -6,7 +6,7 @@ class ButtonWidgets extends StatelessWidget {
   final VoidCallback onPressed;
   final double height;
   final double width;
-  const ButtonWidgets({required this.child,this.height = 30, required this.onPressed,this.width = 350,Key? key}) : super(key: key);
+  const ButtonWidgets({required this.child,this.height = 30, required this.onPressed,this.width = 360,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

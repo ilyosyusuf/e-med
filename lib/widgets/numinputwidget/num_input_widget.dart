@@ -13,9 +13,9 @@ class NumberInputWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: context.w * 0.020),
-      width: context.w * 0.130,
-      height: context.h * 0.070,
+      margin: EdgeInsets.only(right: context.w * 0.02),
+      width: context.w * 0.13,
+      height: context.h * 0.07,
       alignment: Alignment.center,
       decoration: BoxDecoration(
           border: Border.all(color: ColorConst.blackfortext.withOpacity(0.5)),
