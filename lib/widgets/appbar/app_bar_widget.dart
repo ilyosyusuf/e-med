@@ -21,7 +21,7 @@ class AppBarWidget extends StatelessWidget {
         children: [
           InkWell(
             child: Row(
-              children: [
+              children: const [
                 Icon(Icons.chevron_left_outlined, size: FSize.extraLarge, color: ColorConst.kPrimaryColor,),
                 // IconConst.backarrow,
                 Text("Back", style: FStyles.headline3blue, ),
