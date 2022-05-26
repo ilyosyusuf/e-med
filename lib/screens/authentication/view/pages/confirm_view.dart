@@ -24,7 +24,7 @@ class ConFirmationView extends StatelessWidget {
             // width: context.w,
             height: context.h * 0.07,
             onPressed: () {
-              context.read<AuthCubit>().changeState(AuthSignIn());
+              context.read<AuthCubit>().changeState(AuthID());
             }),
       ),
       body: SafeArea(

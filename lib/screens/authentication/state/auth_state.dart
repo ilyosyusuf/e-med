@@ -13,6 +13,9 @@ class AuthSignIn extends AuthState {
 class AuthConfirmation extends AuthState {
   AuthConfirmation();
 }
+class AuthID extends AuthState {
+  AuthID();
+}
 
 class AuthSplash extends AuthState {
   double _time;

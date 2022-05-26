@@ -1,6 +1,7 @@
 import 'package:emed/screens/authentication/cubit/auth_cubit.dart';
 import 'package:emed/screens/authentication/state/auth_state.dart';
 import 'package:emed/screens/authentication/view/pages/confirm_view.dart';
+import 'package:emed/screens/authentication/view/pages/personal_id_view.dart';
 import 'package:emed/screens/authentication/view/pages/signin_view.dart';
 import 'package:emed/screens/authentication/view/pages/signup_page.dart';
 import 'package:emed/screens/authentication/view/pages/splash_view.dart';
@@ -36,6 +37,8 @@ class MainAuthView extends StatelessWidget {
           return SignInView();
         } else if(state is AuthConfirmation){
           return ConFirmationView();
+        } else if(state is AuthID){
+          return PersonalIdView();
         } else{
           return Container();
         }
