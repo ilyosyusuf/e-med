@@ -2,6 +2,7 @@ import 'package:emed/core/constants/colors/color_const.dart';
 import 'package:emed/core/constants/font/font_size.dart';
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
+import 'package:emed/core/icons/icon_const.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget {
@@ -22,6 +23,7 @@ class AppBarWidget extends StatelessWidget {
             child: Row(
               children: [
                 Icon(Icons.chevron_left_outlined, size: FSize.extraLarge, color: ColorConst.kPrimaryColor,),
+                // IconConst.backarrow,
                 Text("Back", style: FStyles.headline3blue, ),
               ],
             ),
