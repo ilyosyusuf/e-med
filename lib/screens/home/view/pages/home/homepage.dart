@@ -4,6 +4,7 @@ import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/core/icons/icon_const.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
+import 'package:emed/widgets/calendar_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -66,16 +67,26 @@ class HomePage extends StatelessWidget {
                           'Monthly appointments',
                           style: FStyles.headline5s,
                         ),
+                        CalendarWidget(
+                          onTap: (day) {},
+                        ),
                         SizedBox(height: context.h * 0.010),
                         const Text(
                           'Today\'s appointments',
                           style: FStyles.headline5s,
                         ),
-                        Container(height: context.h * 0.4,color: ColorConst.kPrimaryColor,),
+                        Container(
+                          height: context.h * 0.4,
+                          color: ColorConst.kPrimaryColor,
+                        ),
                         SizedBox(height: context.h * 0.040),
-                        Center(child: ButtonWidgets(
-                          height: context.h * 0.07,
-                          child: const Text('Add new appointment', style: FStyles.headline3s), onPressed: (){}),)
+                        Center(
+                          child: ButtonWidgets(
+                              height: context.h * 0.07,
+                              child: const Text('Add new appointment',
+                                  style: FStyles.headline3s),
+                              onPressed: () {}),
+                        )
                       ]),
                 )
               ],
