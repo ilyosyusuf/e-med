@@ -9,4 +9,7 @@ class IconConst{
   static SvgPicture syringe = SvgPicture.asset('assets/icons/syringe.svg');
   static SvgPicture doctor = SvgPicture.asset('assets/icons/doctor.svg');
   static SvgPicture hospital = SvgPicture.asset('assets/icons/hospital.svg');
+  static SvgPicture profile = SvgPicture.asset('assets/icons/profile.svg');
+  static SvgPicture notificate = SvgPicture.asset('assets/icons/notifications.svg');
+  static SvgPicture logo = SvgPicture.asset('assets/icons/logo.svg');
 }
