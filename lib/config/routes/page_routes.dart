@@ -2,6 +2,7 @@ import 'package:emed/screens/authentication/view/mainview/main_view.dart';
 import 'package:emed/screens/authentication/view/pages/personal_id_view.dart';
 import 'package:emed/screens/authentication/view/pages/signin_view.dart';
 import 'package:emed/screens/authentication/view/pages/signup_page.dart';
+import 'package:emed/screens/home/view/treatment_details.dart';
 import 'package:flutter/material.dart';
 
 class MyRoute {
@@ -12,15 +13,17 @@ class MyRoute {
   Route? onGenerateRoute(RouteSettings settings) {
     var args = settings.arguments;
     switch (settings.name) {
-            case '/mainauthview':
+      case '/mainauthview':
         return _pages(MainAuthView());
       case '/signupview':
         return _pages(SignUpView());
       case '/signinview':
         return _pages(SignInView());
-            case '/personalidview':
+      case '/personalidview':
         return _pages(PersonalIdView());
-
+        
+      case '/treatment':
+        return _pages(TreatmentDetailsView());
     }
   }
 

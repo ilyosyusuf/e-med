@@ -17,7 +17,7 @@ class StartView extends StatelessWidget {
         Expanded(
           flex: 313,
           child: Center(
-  child: Image.asset('assets/images/startlogo.png'),
+            child: Image.asset('assets/images/startlogo.png'),
           ),
         ),
         Expanded(
@@ -25,29 +25,51 @@ class StartView extends StatelessWidget {
             child: Column(
               children: [
                 const Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: Text("Your medical data is always with you", style: FStyles.headline1s, textAlign: TextAlign.center,)
+                    padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      "Your medical data is always with you",
+                      style: FStyles.headline1s,
+                      textAlign: TextAlign.center,
+                    )),
+                SizedBox(
+                  height: context.h * 0.024,
                 ),
-                SizedBox(height: context.h * 0.024,),
                 const Padding(
                   padding: EdgeInsets.all(15.0),
-                  child: Text("Nunc orci sed sed posuere volutpat varius egestas sit. Amet, suscipit eget dis fusce quam in aliquet pulvinar.", style: FStyles.headline4s, textAlign: TextAlign.center,),),
+                  child: Text(
+                    "Nunc orci sed sed posuere volutpat varius egestas sit. Amet, suscipit eget dis fusce quam in aliquet pulvinar.",
+                    style: FStyles.headline4s,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 const Spacer(),
-                Center(child: ButtonWidgets(
-                  height: context.h * 0.07,
-                  child: Text("Get Started"), onPressed: (){
-                    context.read<AuthCubit>().changeState(AuthSignUP());
-                  }),),
-                SizedBox(height: context.h * 0.024,),
-                Center(child: ButtonWidgets(
-                  height: context.h * 0.07,
-                  backgroundColor: Colors.white,
-                  borderColor: ColorConst.kPrimaryColor,
-                  child: Text("Log In", style: FStyles.headline3blue,), onPressed: (){
-                    context.read<AuthCubit>().changeState(AuthSignIn());
-                  }),),
-                SizedBox(height: context.h * 0.04,),
-
+                Center(
+                  child: ButtonWidgets(
+                      height: context.h * 0.07,
+                      child: Text("Get Started"),
+                      onPressed: () {
+                        context.read<AuthCubit>().changeState(AuthSignUP());
+                      }),
+                ),
+                SizedBox(
+                  height: context.h * 0.024,
+                ),
+                Center(
+                  child: ButtonWidgets(
+                      height: context.h * 0.07,
+                      backgroundColor: Colors.white,
+                      borderColor: ColorConst.kPrimaryColor,
+                      child: Text(
+                        "Log In",
+                        style: FStyles.headline3blue,
+                      ),
+                      onPressed: () {
+                        context.read<AuthCubit>().changeState(AuthSignIn());
+                      }),
+                ),
+                SizedBox(
+                  height: context.h * 0.04,
+                ),
               ],
             ))
       ]),

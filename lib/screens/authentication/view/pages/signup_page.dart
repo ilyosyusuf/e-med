@@ -4,6 +4,7 @@ import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/screens/authentication/cubit/auth_cubit.dart';
 import 'package:emed/screens/authentication/state/auth_state.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
+import 'package:emed/widgets/buttons/back_button.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
 import 'package:emed/widgets/textformwidget/text_form_widget.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,15 @@ class SignUpView extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               child: Column(
-                children: [AppBarWidget(text: "Sign Up"), Divider(thickness: 1)],
+                children: [
+                  AppBarWidget(
+                    center: Text("Sign Up"),
+                    leading: BackButtonWidgets(ontap: () {
+                      context.read<AuthCubit>().changeState(AuthInitial());
+                    }),
+                  ),
+                  Divider(thickness: 1)
+                ],
               ),
             ),
             Expanded(
@@ -88,7 +97,9 @@ class SignUpView extends StatelessWidget {
                             child: Text("Continue"),
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                context.read<AuthCubit>().changeState(AuthConfirmation());
+                                context
+                                    .read<AuthCubit>()
+                                    .changeState(AuthConfirmation());
                               }
                             },
                             width: context.w,

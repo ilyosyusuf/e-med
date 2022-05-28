@@ -39,6 +39,8 @@ dependencies:
   flutter_bloc: ^8.0.1
   syncfusion_flutter_calendar: ^20.1.57
   flutter_svg: ^1.1.0
+  dropdown_button2: ^1.5.2
+  get_storage: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +69,7 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/icons/
+    - lib/core/mock/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

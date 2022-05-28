@@ -2,9 +2,13 @@ import 'package:emed/core/components/box_only_decoration.dart';
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/core/icons/icon_const.dart';
+import 'package:emed/screens/authentication/cubit/auth_cubit.dart';
+import 'package:emed/screens/authentication/state/auth_state.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
+import 'package:emed/widgets/buttons/back_button.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PersonalIdView extends StatelessWidget {
   const PersonalIdView({Key? key}) : super(key: key);
@@ -29,7 +33,12 @@ class PersonalIdView extends StatelessWidget {
               alignment: Alignment.center,
               child: Column(
                 children: [
-                  AppBarWidget(text: "Your Personal ID"),
+                  AppBarWidget(
+                    center: Text("Your Personal ID"),
+                    leading: BackButtonWidgets(ontap: () {
+                      context.read<AuthCubit>().changeState(AuthSignIn());
+                    }),
+                  ),
                   Divider(thickness: 1)
                 ],
               ),
@@ -44,10 +53,9 @@ class PersonalIdView extends StatelessWidget {
                       height: context.h * 0.1,
                     ),
                     Container(
-                      height: 100,
-                      width: 100,
-                      child: Image.asset('assets/images/idmain.png')
-                    ),
+                        height: 100,
+                        width: 100,
+                        child: Image.asset('assets/images/idmain.png')),
                     SizedBox(height: context.h * 0.04),
                     Text(
                       "Doctors use your ID to have an access to your medical informations. We have sent this ID and your password to your number so you don’t forget them",
