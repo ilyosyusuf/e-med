@@ -1,5 +1,6 @@
 
 import 'package:emed/core/constants/font/font_style.dart';
+import 'package:emed/screens/home/view/pages/syringe/treatment_details.dart';
 import 'package:flutter/material.dart';
 
 class ListTileWidget extends StatelessWidget {
@@ -18,6 +19,9 @@ class ListTileWidget extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (__)=> TreatmentDetailsView(name: subtitle1.toString(), clinic: subtitle2.toString())));
+          },
           title: Text(
         this.title.toString(),
         style: FStyles.headline3s,

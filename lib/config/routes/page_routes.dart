@@ -2,7 +2,7 @@ import 'package:emed/screens/authentication/view/mainview/main_view.dart';
 import 'package:emed/screens/authentication/view/pages/personal_id_view.dart';
 import 'package:emed/screens/authentication/view/pages/signin_view.dart';
 import 'package:emed/screens/authentication/view/pages/signup_page.dart';
-import 'package:emed/screens/home/view/treatment_details.dart';
+import 'package:emed/screens/home/view/pages/syringe/treatment_details.dart';
 import 'package:flutter/material.dart';
 
 class MyRoute {
@@ -22,8 +22,8 @@ class MyRoute {
       case '/personalidview':
         return _pages(PersonalIdView());
         
-      case '/treatment':
-        return _pages(TreatmentDetailsView());
+      // case '/treatment':
+      //   return _pages(TreatmentDetailsView());
     }
   }
 

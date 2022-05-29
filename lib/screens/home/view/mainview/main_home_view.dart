@@ -1,6 +1,7 @@
 import 'package:emed/screens/home/cubit/home_cubit.dart';
 import 'package:emed/screens/home/state/home_state.dart';
 import 'package:emed/screens/home/view/pages/home/homepage.dart';
+import 'package:emed/screens/home/view/pages/syringe_view.dart';
 import 'package:emed/widgets/navigationbar/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,8 +23,8 @@ class HomeView extends StatelessWidget {
           if (state is Homemain) {
             return const HomePage();
           } else if (state is SyringeState) {
-            return const Center(
-              child: Text('Syringe Page'),
+            return Center(
+              child: Container(),
             );
           } else if (state is DoctorState) {
             return Container();
