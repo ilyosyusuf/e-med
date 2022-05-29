@@ -3,6 +3,7 @@ import 'package:emed/config/routes/page_routes.dart';
 import 'package:emed/config/themes/main_theme.dart';
 import 'package:emed/screens/home/view/pages/syringe/current_treatment.dart';
 import 'package:emed/screens/home/view/mainview/main_home_view.dart';
+import 'package:emed/screens/home/view/pages/syringe/drug_history.dart';
 import 'package:emed/screens/home/view/pages/syringe/medical_history.dart';
 import 'package:emed/screens/home/view/pages/syringe_view.dart';
 import 'package:emed/widgets/buttons/drop_dow_button.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: MainTheme.apptheme,
       navigatorKey: NavigationService.instance.navigatorKey,
       
-      home: MedicalHistory()
+      home: DrugHistory(),
       // initialRoute: '/mainauthview',
       // onGenerateRoute: MyRoute.instance.onGenerateRoute,
     );

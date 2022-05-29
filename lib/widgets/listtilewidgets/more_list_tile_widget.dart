@@ -2,10 +2,10 @@ import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/widgets/showmodal/showmodal_widget.dart';
 import 'package:flutter/material.dart';
 
-class DrugListTileWidget extends StatelessWidget {
+class MoreListTileWidget extends StatelessWidget {
   String title;
   String mg;
-  DrugListTileWidget({
+  MoreListTileWidget({
     Key? key,
     required this.title,
     required this.mg,

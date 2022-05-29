@@ -2,7 +2,7 @@ import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/back_button.dart';
-import 'package:emed/widgets/listtilewidgets/drug_list_tile_widget.dart';
+import 'package:emed/widgets/listtilewidgets/more_list_tile_widget.dart';
 import 'package:flutter/material.dart';
 
 class TreatmentDetailsView extends StatelessWidget {
@@ -74,15 +74,15 @@ class TreatmentDetailsView extends StatelessWidget {
                                 style: FStyles.headline3blue),
                             SizedBox(height: context.h * 0.03),
                             Text("Drugs being taken"),
-                            DrugListTileWidget(
+                            MoreListTileWidget(
                               title: "Salicylic",
                               mg: "150 mg",
                             ),
-                            DrugListTileWidget(
+                            MoreListTileWidget(
                               title: "Calcipotriol",
                               mg: "500 mg",
                             ),
-                            DrugListTileWidget(
+                            MoreListTileWidget(
                               title: "Tazorac",
                               mg: "100 mg",
                             ),
