@@ -1,4 +1,5 @@
 import 'package:emed/core/constants/font/font_style.dart';
+import 'package:emed/screens/home/view/pages/syringe/taken_drug_details.dart';
 import 'package:flutter/material.dart';
 
 class DrugListTileWidget extends StatelessWidget {
@@ -17,6 +18,9 @@ class DrugListTileWidget extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (_)=> TakenDrugDetailsView(drugName: title.toString(), mg: mg.toString(), fromdo: fromdo.toString())));
+          },
           title: Text(
             this.title.toString(),
             style: FStyles.headline3s,
