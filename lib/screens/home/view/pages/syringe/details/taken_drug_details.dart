@@ -23,7 +23,7 @@ class TakenDrugDetailsView extends StatelessWidget {
                 ),
                 leading: BackButtonWidgets(ontap: () {
                   Navigator.pop(context);
-                })),
+                },),),
             Expanded(
               child: Column(
                 children: [

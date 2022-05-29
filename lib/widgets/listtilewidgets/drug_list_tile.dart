@@ -1,5 +1,5 @@
 import 'package:emed/core/constants/font/font_style.dart';
-import 'package:emed/screens/home/view/pages/syringe/taken_drug_details.dart';
+import 'package:emed/screens/home/view/pages/syringe/details/taken_drug_details.dart';
 import 'package:flutter/material.dart';
 
 class DrugListTileWidget extends StatelessWidget {

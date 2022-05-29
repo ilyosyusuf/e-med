@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 class TreatmentDetailsView extends StatelessWidget {
   String name;
   String clinic;
-  TreatmentDetailsView({Key? key, required this.name, required this.clinic}) : super(key: key);
+  TreatmentDetailsView({Key? key, required this.name, required this.clinic})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
