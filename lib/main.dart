@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: MainTheme.apptheme,
       navigatorKey: NavigationService.instance.navigatorKey,
       
-      home: HomeView()
+      home: TreatMain()
       // initialRoute: '/mainauthview',
       // onGenerateRoute: MyRoute.instance.onGenerateRoute,
     );

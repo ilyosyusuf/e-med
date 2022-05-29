@@ -1,7 +1,14 @@
+// ignore_for_file: sort_child_properties_last
+
+import 'package:emed/core/components/box_full_decoration.dart';
+import 'package:emed/core/components/box_only_decoration.dart';
+import 'package:emed/core/constants/colors/color_const.dart';
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/back_button.dart';
+import 'package:emed/widgets/listtilewidgets/drug_list_tile_widget.dart';
+import 'package:emed/widgets/listtilewidgets/list_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -72,7 +79,19 @@ class TreatmentDetailsView extends StatelessWidget {
                             Text("blood, urine, ultrasound, hormones",
                                 style: FStyles.headline3blue),
                             SizedBox(height: context.h * 0.03),
-                            Text("Analysis"),
+                            Text("Drugs being taken"),
+                            DrugListTileWidget(
+                              title: "Salicylic",
+                              mg: "150 mg",
+                            ),
+                            DrugListTileWidget(
+                              title: "Calcipotriol",
+                              mg: "500 mg",
+                            ),
+                            DrugListTileWidget(
+                              title: "Tazorac",
+                              mg: "100 mg",
+                            ),
                           ],
                         ),
                       ),
