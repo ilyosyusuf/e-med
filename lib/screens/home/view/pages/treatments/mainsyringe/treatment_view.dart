@@ -1,20 +1,20 @@
 import 'package:emed/core/constants/colors/color_const.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/core/icons/icon_const.dart';
-import 'package:emed/screens/home/view/pages/syringe/syringepages/current_treatment.dart';
 import 'package:emed/screens/home/view/pages/syringe/syringepages/drug_history.dart';
 import 'package:emed/screens/home/view/pages/syringe/syringepages/medical_history.dart';
+import 'package:emed/screens/home/view/pages/treatments/pagestreatment/current_treatment.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
-class SyringeView extends StatefulWidget {
-  const SyringeView({Key? key}) : super(key: key);
+class TreatmentView extends StatefulWidget {
+  const TreatmentView({Key? key}) : super(key: key);
 
   @override
-  State<SyringeView> createState() => _SyringeViewState();
+  State<TreatmentView> createState() => _TreatmentViewState();
 }
 
-class _SyringeViewState extends State<SyringeView> with TickerProviderStateMixin {
+class _TreatmentViewState extends State<TreatmentView> with TickerProviderStateMixin {
   TabController? _controller;
   @override
   void initState() {

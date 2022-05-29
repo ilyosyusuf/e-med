@@ -1,7 +1,6 @@
 import 'package:emed/config/init/navigation/navigator.dart';
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
-import 'package:emed/screens/home/view/pages/syringe/details/treatment_details.dart';
 import 'package:emed/widgets/listtilewidgets/list_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
