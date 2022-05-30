@@ -24,6 +24,7 @@ class PersonalIdView extends StatelessWidget {
             height: context.h * 0.07,
             onPressed: () {
               // go to next pages
+              Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
             }),
       ),
       body: SafeArea(

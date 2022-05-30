@@ -1,7 +1,7 @@
 import 'package:emed/config/init/navigation/navigator.dart';
+import 'package:emed/config/routes/page_routes.dart';
 import 'package:emed/config/themes/main_theme.dart';
 import 'package:emed/screens/home/view/mainview/main_home_view.dart';
-import 'package:emed/screens/home/view/pages/syringe/mainsyringe/syringe_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,9 +20,8 @@ class MyApp extends StatelessWidget {
       theme: MainTheme.apptheme,
       navigatorKey: NavigationService.instance.navigatorKey,
       
-      home: HomeView()
-      // initialRoute: '/mainauthview',
-      // onGenerateRoute: MyRoute.instance.onGenerateRoute,
+      initialRoute: '/mainauthview',
+      onGenerateRoute: MyRoute.instance.onGenerateRoute,
     );
   }
 }
