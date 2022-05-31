@@ -13,8 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-class BookingPage extends StatelessWidget {
-  const BookingPage({Key? key}) : super(key: key);
+class AppointmentPage extends StatelessWidget {
+  const AppointmentPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class BookingPage extends StatelessWidget {
                       'Booking an appointment',
                       style: FStyles.headline3s,
                     ),
-                    leading: InkWell(
+                     leading: InkWell(
                         onTap: () => Navigator.pop(context),
                         child: const Text(
                           'cancel',
@@ -112,30 +112,29 @@ class BookingPage extends StatelessWidget {
                                         color: ColorConst.white,
                                         borderRadius: BorderRadius.circular(
                                             RadiusConst.medium)),
-                                    child: SfCalendar(
-                                      view: CalendarView.week,
-                                      onTap: (v) {
-                                        context
-                                            .read<HomeCubit>()
-                                            .changeTypeCalendat();
-                                      },
-                                    ),
-                                    // child: CupertinoDatePicker(
-                                    //   onDateTimeChanged: (v) async {
-                                    //     await Storageservice.instance.storage
-                                    //         .write('day', v.day);
-                                    //     await Storageservice.instance.storage
-                                    //         .write('houre', v.hour);
-                                    //     await Storageservice.instance.storage
-                                    //         .write('month', v.month);
-
-                                    //     debugPrint(Storageservice
-                                    //         .instance.storage
-                                    //         .read('month')
-                                    //         .toString());
+                                    // child: SfCalendar(
+                                    //   view: CalendarView.week,
+                                    //   onTap: (v) {
+                                    //     context
+                                    //         .read<HomeCubit>()
+                                    //         .changeTypeCalendat();
                                     //   },
-                                    //   mode: CupertinoDatePickerMode.dateAndTime,
                                     // ),
+                                    child: CupertinoDatePicker(
+                                      onDateTimeChanged: (v) async {
+                                        await Storageservice.instance.storage
+                                            .write('day', v.day);
+                                        await Storageservice.instance.storage
+                                            .write('houre', v.hour);
+                                        await Storageservice.instance.storage
+                                            .write('month', v.month);
+                                        debugPrint(Storageservice
+                                            .instance.storage
+                                            .read('month')
+                                            .toString());
+                                      },
+                                      mode: CupertinoDatePickerMode.dateAndTime,
+                                    ),
                                   );
                                 });
                           },
@@ -143,7 +142,9 @@ class BookingPage extends StatelessWidget {
                               height: context.h * 0.1,
                               child: DropDownWidget(
                                   text: 'DD.MM.YYYY / HH:MM - HH:MM',
-                                  items: [])),
+                                  items: [
+                                    
+                                  ])),
                         ),
                         SizedBox(height: context.h * 0.1),
                       ],

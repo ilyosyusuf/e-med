@@ -68,7 +68,9 @@ class HomePage extends StatelessWidget {
                           style: FStyles.headline5s,
                         ),
                         CalendarWidget(
-                          onTap: (day) {},
+                          onTap: (day) {
+                            Navigator.pushNamed(context, '/appointment');
+                          },
                         ),
                         SizedBox(height: context.h * 0.010),
                         const Text(

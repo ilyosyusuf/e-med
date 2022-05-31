@@ -6,7 +6,9 @@
         "location" : "Shaykhontokhur District",
         "time" : [10, 12],
         "days" : "Monday, Thusday",
-        "rating" : 3
+        "rating" : 3,
+        "user_image": "assets//images/person1.png",
+        "region" : "Tashkent"
     },
     {
         "name" : "Usmonov Dilshod",
@@ -15,7 +17,9 @@
         "location" : "Mirzo Ulugbek District",
         "time" : [1, 2],
         "days" : "Friday",
-        "rating" : 5
+        "rating" : 5,
+        "user_image": "assets//images/person2.png",
+        "region" : "Samarkhand"
     },
     {
         "name" : "Akrom Burhoniddin",
@@ -24,7 +28,9 @@
         "location" : "Olmazor District",
         "time" : [9, 11],
         "days" : "Wensday, Friday",
-        "rating" : 4
+        "rating" : 4,
+        "user_image": "assets//images/person3.png",
+        "region" : "Bukhara"
     },
     {
         "name" : "Mavlonov Boburjon",
@@ -33,7 +39,9 @@
         "location" : "Shaykhontokhur District",
         "time" : [10, 12],
         "days" : "Monday, Thusday",
-        "rating" : 3
+        "rating" : 3,
+        "user_image": "assets//images/person4.png",
+        "region" : "Syrdarya"
     },
     {
         "name" : "Imonoxunov Nuriddin",
@@ -42,7 +50,9 @@
         "location" : "Sergili District",
         "time" : [4, 6],
         "days" : "Monday, Thusday",
-        "rating" : 6
+        "rating" : 6,
+        "user_image": "assets//images/person5.png",
+        "region" : "Andijan"
     },
     {
         "name" : "Mamurov Abbos",
@@ -51,6 +61,8 @@
         "location" : "Mirzo Ulugbek District",
         "time" : [6, 8],
         "days" : "Friday, Saturday",
-        "rating" : 5
+        "rating" : 5,
+        "user_image": "assets//images/person6.png",
+        "region" : "Ferghana"
     }
 ]
