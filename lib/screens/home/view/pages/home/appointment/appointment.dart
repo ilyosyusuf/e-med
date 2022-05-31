@@ -4,6 +4,7 @@ import 'package:emed/core/constants/font/radius_const.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/screens/home/cubit/home_cubit.dart';
 import 'package:emed/screens/home/state/home_state.dart';
+import 'package:emed/screens/home/view/pages/home/appointment/appointment_cubit.dart';
 import 'package:emed/services/get_storage_service.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/drop_dow_button.dart';
@@ -19,7 +20,7 @@ class AppointmentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => HomeCubit(), child: scafold(context));
+        create: (context) => AppointmentCubit(), child: scafold(context));
   }
 
   Scaffold scafold(BuildContext context) {
@@ -27,11 +28,11 @@ class AppointmentPage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ButtonWidgets(
         child: const Text('Confirm'),
-        onPressed: () {
-        },
+        onPressed: () {},
       ),
-      body: BlocBuilder<HomeCubit, HomeState>(
+      body: BlocBuilder<AppointmentCubit, BookingState>(
         builder: (context, state) {
+          var data = context.watch<AppointmentCubit>();
           return SafeArea(
             child: Column(
               children: [
@@ -43,7 +44,7 @@ class AppointmentPage extends StatelessWidget {
                       'Booking an appointment',
                       style: FStyles.headline3s,
                     ),
-                     leading: InkWell(
+                    leading: InkWell(
                         onTap: () => Navigator.pop(context),
                         child: const Text(
                           'cancel',
@@ -61,35 +62,32 @@ class AppointmentPage extends StatelessWidget {
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose hospital region...',
-                                items: context.watch<HomeCubit>().regions)),
-                        const Text('District',
-                            style: FStyles.headline4sbold),
+                                items: data.regions)),
+                        const Text('District', style: FStyles.headline4sbold),
                         SizedBox(
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose hospital district...',
-                                items: context.read<HomeCubit>().district)),
-                        const Text('Hospital',
-                            style: FStyles.headline4sbold),
+                                items: data.district)),
+                        const Text('Hospital', style: FStyles.headline4sbold),
                         SizedBox(
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose doctor’s workplace...',
-                                items: [])),
+                                items: data.work )),
                         const Text('Doctor’s position',
                             style: FStyles.headline4sbold),
                         SizedBox(
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose doctor’s position...',
-                                items: [])),
-                        const Text('The doctor',
-                            style: FStyles.headline4sbold),
+                                items: data.expert)),
+                        const Text('The doctor', style: FStyles.headline4sbold),
                         SizedBox(
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose the doctor you want...',
-                                items: [])),
+                                items: data.name)),
                         const Text('Service type',
                             style: FStyles.headline4sbold),
                         SizedBox(
@@ -142,9 +140,7 @@ class AppointmentPage extends StatelessWidget {
                               height: context.h * 0.1,
                               child: DropDownWidget(
                                   text: 'DD.MM.YYYY / HH:MM - HH:MM',
-                                  items: [
-                                    
-                                  ])),
+                                  items: [])),
                         ),
                         SizedBox(height: context.h * 0.1),
                       ],

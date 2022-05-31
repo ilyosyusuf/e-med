@@ -1,11 +1,16 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:emed/screens/home/state/home_state.dart';
 import 'package:emed/services/get_storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'package:flutter/services.dart' as bundle;
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(Homemain());
+
+  static List dataList = [];
 
   List<String> regions = [
     'Tashkent',
@@ -75,6 +80,14 @@ class HomeCubit extends Cubit<HomeState> {
       currentpage = index;
       emit(HospitalState());
     }
+  }
+
+  Future<List> getData()async{
+    final data = await bundle.rootBundle.loadString('lib/core/mock/mock_data.json');
+    final list = jsonDecode(data) as List;
+    // debugPrint(list.toString());
+    dataList.add(list);
+    return list;
   }
 
   pickMeeting(String value) {}

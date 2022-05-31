@@ -3,7 +3,7 @@ import 'package:emed/screens/authentication/view/pages/personal_id_view.dart';
 import 'package:emed/screens/authentication/view/pages/signin_view.dart';
 import 'package:emed/screens/authentication/view/pages/signup_page.dart';
 import 'package:emed/screens/home/view/mainview/main_home_view.dart';
-import 'package:emed/screens/home/view/pages/home/appointment.dart';
+import 'package:emed/screens/home/view/pages/home/appointment/appointment.dart';
 
 import 'package:flutter/material.dart';
 
