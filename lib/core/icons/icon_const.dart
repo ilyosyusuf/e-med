@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -12,4 +13,7 @@ class IconConst{
   static SvgPicture profile = SvgPicture.asset('assets/icons/profile.svg');
   static SvgPicture notificate = SvgPicture.asset('assets/icons/notifications.svg');
   static SvgPicture logo = SvgPicture.asset('assets/icons/logo.svg');
+  static IconData person = Icons.person;
+  static IconData arrow = CupertinoIcons.right_chevron;
+  static SvgPicture filter = SvgPicture.asset('assets/icons/filter.svg');
 }
