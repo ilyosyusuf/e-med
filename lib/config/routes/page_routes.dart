@@ -6,6 +6,7 @@ import 'package:emed/screens/home/cubit/home_cubit.dart';
 import 'package:emed/screens/home/view/mainview/main_home_view.dart';
 import 'package:emed/screens/home/view/pages/doctor/view/booking_page.dart';
 import 'package:emed/screens/home/view/pages/doctor/view/doctor_info.dart';
+import 'package:emed/screens/home/view/pages/doctor/view/filter.dart';
 import 'package:emed/screens/home/view/pages/home/appointment/appointment.dart';
 
 import 'package:flutter/material.dart';
@@ -34,6 +35,8 @@ class MyRoute {
         return _pages(DoctorInfo(info: args as Map));
             case '/bookingpage':
         return _pages(BookingPage(info: args as Map));
+                  case '/filter':
+        return _pages(FilterPage());
 
       // case '/treatment':
       //   return _pages(TreatmentDetailsView());

@@ -33,6 +33,10 @@ class DoctorPage extends StatelessWidget {
               child: Column(
                 children: [
                   AppBarWidget(
+                    center: SizedBox(
+                        height: context.h * 0.025,
+                        width: context.w * 0.3,
+                        child: IconConst.logo),
                     leading: Icon(IconConst.person),
                     trailing: InkWell(
                         onTap: () {

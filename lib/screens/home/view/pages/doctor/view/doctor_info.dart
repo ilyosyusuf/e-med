@@ -18,6 +18,7 @@ class DoctorInfo extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ButtonWidgets(
+          height: context.h * 0.07,
           child: const Text(
             'Book an appointment',
             style: FStyles.headline3s,
