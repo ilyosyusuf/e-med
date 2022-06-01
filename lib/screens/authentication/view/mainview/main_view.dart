@@ -1,3 +1,4 @@
+import 'package:emed/core/base/base_view.dart';
 import 'package:emed/screens/authentication/cubit/auth_cubit.dart';
 import 'package:emed/screens/authentication/state/auth_state.dart';
 import 'package:emed/screens/authentication/view/pages/confirm_view.dart';
@@ -22,28 +23,33 @@ class MainAuthView extends StatelessWidget {
 
   Scaffold authScaffold() {
     return Scaffold(
-    body: BlocConsumer<AuthCubit, AuthState>(
-      listener: ((context, state) {
-        
-      }),
-      builder: (context, state){
-        if(state is AuthSplash){
-          return const SplashView();
-        } else if(state is AuthInitial){
-          return const StartView();
-        } else if(state is AuthSignUP){
-          return SignUpView();
-        } else if(state is AuthSignIn){
-          return SignInView();
-        } else if(state is AuthConfirmation){
-          return ConFirmationView();
-        } else if(state is AuthID){
-          return PersonalIdView();
-        } else{
-          return Container();
-        }
-      },
-    )
+    body:
+     BaseView( viewModel: MainAuthView, OnPageBuilder: (context, widget){
+       return        BlocConsumer<AuthCubit, AuthState>(
+        listener: ((context, state) {
+          
+        }),
+        builder: (context, state){
+          if(state is AuthSplash){
+            return const SplashView();
+          } else if(state is AuthInitial){
+            return const StartView();
+          } else if(state is AuthSignUP){
+            return SignUpView();
+          } else if(state is AuthSignIn){
+            return SignInView();
+          } else if(state is AuthConfirmation){
+            return ConFirmationView();
+          } else if(state is AuthID){
+            return PersonalIdView();
+          } else{
+            return Container();
+          }
+        },
+         );
+     },
+
+     )
   );
   }
 }

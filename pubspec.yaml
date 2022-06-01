@@ -41,6 +41,7 @@ dependencies:
   flutter_svg: ^1.1.0
   dropdown_button2: ^1.5.2
   get_storage: ^2.0.3
+  flutter_screen_lock: ^6.0.0
 
 dev_dependencies:
   flutter_test:

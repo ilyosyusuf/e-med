@@ -74,7 +74,7 @@ class AppointmentPage extends StatelessWidget {
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose doctor’s workplace...',
-                                items: data.work )),
+                                items: data.work)),
                         const Text('Doctor’s position',
                             style: FStyles.headline4sbold),
                         SizedBox(
@@ -137,10 +137,12 @@ class AppointmentPage extends StatelessWidget {
                                 });
                           },
                           child: SizedBox(
-                              height: context.h * 0.1,
-                              child: DropDownWidget(
-                                  text: 'DD.MM.YYYY / HH:MM - HH:MM',
-                                  items: [])),
+                            height: context.h * 0.1,
+                            child: DropDownWidget(
+                              text: 'DD.MM.YYYY / HH:MM - HH:MM',
+                              items: [],
+                            ),
+                          ),
                         ),
                         SizedBox(height: context.h * 0.1),
                       ],

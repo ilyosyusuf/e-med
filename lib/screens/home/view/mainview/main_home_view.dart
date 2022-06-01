@@ -1,3 +1,4 @@
+import 'package:emed/core/base/base_view_lock.dart';
 import 'package:emed/screens/home/cubit/home_cubit.dart';
 import 'package:emed/screens/home/state/home_state.dart';
 import 'package:emed/screens/home/view/pages/home/homepage.dart';
@@ -23,7 +24,8 @@ class HomeView extends StatelessWidget {
 
   Scaffold homeScaffold() => Scaffold(
         bottomNavigationBar: const NavigationBarWidgets(),
-        body: BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
+        body: BaseViewLock(viewModel: HomeView, onPageBuilder: (context, widget){
+          return  BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
           if (state is Homemain) {
             return const HomePage();
           } else if (state is SyringeState) {
@@ -41,6 +43,8 @@ class HomeView extends StatelessWidget {
           } else {
             return Container();
           }
-        }),
+        });
+        })
+
       );
 }
