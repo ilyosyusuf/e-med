@@ -2,6 +2,8 @@ import 'package:emed/core/constants/colors/color_const.dart';
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/core/icons/icon_const.dart';
+import 'package:emed/screens/home/cubit/home_cubit.dart';
+import 'package:emed/screens/home/view/pages/doctor/view/doctor_page.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/back_button.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
@@ -20,7 +22,9 @@ class DoctorInfo extends StatelessWidget {
             'Book an appointment',
             style: FStyles.headline3s,
           ),
-          onPressed: () {}
+          onPressed: () {
+            Navigator.pushNamed(context, '/bookingpage', arguments: info);
+          }
           ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -29,25 +33,32 @@ class DoctorInfo extends StatelessWidget {
               children: [
                 AppBarWidget(
                   leading: BackButtonWidgets(
-                      ontap: () {},
+                      ontap: () {
+                        Navigator.pop(context);
+                        // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: ((context) => DoctorPage(datainfo: HomeCubit.dataList))), (route) => false);
+
+                      },
                   ),
                   center: Text(
                     info['name'],
                     style: FStyles.headline3s,
                   ),
+                  trailing: SizedBox(width: 70.0,),
                 ),
                 Padding(
                   padding: EdgeInsets.all(15.0),
                   child: Column(
                     children: [
                       ClipRRect(
+                        borderRadius: BorderRadius.circular(150.0),
                         child: FadeInImage(
-                            fit: BoxFit.contain,
+                          
+                            fit: BoxFit.cover,
                             width: context.w * 0.4,
                             height: context.h * 0.2,
                             placeholder:
-                                const AssetImage('assets/images/loading.gif'),
-                            image: AssetImage(info['pic'])),
+                                const AssetImage('assets/gifs/loading.gif'),
+                            image: AssetImage(info['user_image'])),
                       ),
                       SizedBox(height: context.h * 0.02),
                       Text(
@@ -71,7 +82,7 @@ class DoctorInfo extends StatelessWidget {
                             ),
                             SizedBox(height: context.h * 0.02),
                             Text(
-                              info['place work'],
+                              info['place_work'],
                               style: FStyles.headline3s,
                             ),
                             SizedBox(height: context.h * 0.06),

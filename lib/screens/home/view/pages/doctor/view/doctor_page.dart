@@ -36,8 +36,7 @@ class DoctorPage extends StatelessWidget {
                     leading: Icon(IconConst.person),
                     trailing: InkWell(
                         onTap: () {
-                          // NavigationService.instance.pushNamed('/filter');
-                          // Navigator.pushNamed(context, '/filter');
+                          Navigator.pushNamed(context, '/filter');
                         },
                         child: IconConst.filter),
                   ),
@@ -72,7 +71,9 @@ class DoctorPage extends StatelessWidget {
                                         itemCount: datainfo[0].length - 1,
                                         itemBuilder: (context, index) {
                                           return InkWell(
-                                          
+                                            onTap: () => Navigator.pushNamed(
+                                                context, '/doctorinfo',
+                                                arguments: datainfo[0][index]),
                                             child: SizedBox(
                                               height: context.h * 0.130,
                                               child: NewDoctorsWidget(
@@ -105,6 +106,10 @@ class DoctorPage extends StatelessWidget {
                                         itemBuilder: (context, index) {
                                           return InkWell(
                                             onTap: () {
+                                              Navigator.pushNamed(
+                                                  context, '/doctorinfo',
+                                                  arguments: datainfo[0]
+                                                      [index]);
                                             },
                                             child: NewDoctorsWidget(
                                                 pic: datainfo[0][index]
@@ -129,7 +134,12 @@ class DoctorPage extends StatelessWidget {
                                     itemBuilder: (context, index) {
                                       return InkWell(
                                         onTap: () {
-                                         
+                                          Navigator.pushNamed(
+                                              context, '/doctorinfo',
+                                              arguments: context
+                                                  .watch<DoctorCubit>()
+                                                  .temp
+                                                  .toList()[index]);
                                         },
                                         child: NewDoctorsWidget(
                                             pic: context
