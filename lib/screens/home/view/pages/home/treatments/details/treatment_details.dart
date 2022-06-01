@@ -22,9 +22,13 @@ class TreatmentDetailsView extends StatelessWidget {
                   "Treatment details",
                   style: FStyles.headline3s,
                 ),
+                
                 leading: BackButtonWidgets(ontap: () {
                   Navigator.pop(context);
-                })),
+                },
+                ),
+                trailing: SizedBox(width: context.w * 0.15,)
+                ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(

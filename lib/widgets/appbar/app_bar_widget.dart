@@ -60,7 +60,7 @@ class AppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: context.h * 0.07,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -68,14 +68,13 @@ class AppBarWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            SizedBox(width: context.w * 0.015),
             leading,
             const Spacer(),
             center,
             const Spacer(),
-            SizedBox(
-              width: context.w * 0.1,
-            ),
-            trailing
+            trailing,
+            SizedBox(width: context.w * 0.015),
           ],
         ),
         const Divider(

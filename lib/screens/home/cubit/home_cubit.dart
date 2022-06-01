@@ -12,39 +12,6 @@ class HomeCubit extends Cubit<HomeState> {
 
   static List dataList = [];
 
-  List<String> regions = [
-    'Tashkent',
-    'Namangan',
-    'Andijan',
-    'Fargana',
-    'Xorazm',
-    'Samarqand',
-    'Buxoro',
-    'Navoiy',
-    'Jizzax',
-    'Qashqadaryo',
-    'Surxandaryo',
-    'Qora qalpogiston'
-  ];
-
-  List<String> district = [
-    'Chilonzor',
-    'Mirzo Ulugbek',
-    'Sergili',
-    'Yakka Saroy',
-    'Shayxontohur',
-    'Olmazor'
-  ];
-
-  CalendarView calendarView = CalendarView.month;
-
-  changeTypeCalendat() {
-    calendarView = CalendarView.week;
-    emit(BookingState());
-  }
-
-  List<String> time = ["9 : 00", "12 : 00", "4 : 00", "8 : 00"];
-
   String? selectedValue;
 
   addInfo(List item, String value) async {
@@ -75,7 +42,7 @@ class HomeCubit extends Cubit<HomeState> {
       emit(SyringeState());
     } else if (index == 2) {
       currentpage = index;
-      emit(DoctorState());
+      emit(DoctorState(dataList: dataList));
     } else if (index == 3) {
       currentpage = index;
       emit(HospitalState());

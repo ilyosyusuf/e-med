@@ -15,7 +15,8 @@ class SyringeState extends HomeState {
 }
 
 class DoctorState extends HomeState {
-  DoctorState();
+  List dataList = [];
+  DoctorState({required this.dataList});
 }
 
 class HospitalState extends HomeState {

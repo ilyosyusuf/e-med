@@ -8,7 +8,12 @@ class TakenDrugDetailsView extends StatelessWidget {
   String drugName;
   String mg;
   String fromdo;
-  TakenDrugDetailsView({Key? key, required this.drugName, required this.mg, required this.fromdo}) : super(key: key);
+  TakenDrugDetailsView(
+      {Key? key,
+      required this.drugName,
+      required this.mg,
+      required this.fromdo})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +26,14 @@ class TakenDrugDetailsView extends StatelessWidget {
                   "Taken drug details",
                   style: FStyles.headline3s,
                 ),
-                leading: BackButtonWidgets(ontap: () {
-                  Navigator.pop(context);
-                },),),
+                leading: BackButtonWidgets(
+                  ontap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                trailing: SizedBox(
+                  width: context.w * 0.15,
+                )),
             Expanded(
               child: Column(
                 children: [
@@ -36,22 +46,19 @@ class TakenDrugDetailsView extends StatelessWidget {
                         children: [
                           SizedBox(height: context.h * 0.03),
                           Text("Drug name"),
-                          Text(drugName,
-                              style: FStyles.headline3s),
+                          Text(drugName, style: FStyles.headline3s),
                           SizedBox(height: context.h * 0.03),
                           Text("Dose"),
                           Text(mg, style: FStyles.headline3s),
                           SizedBox(height: context.h * 0.03),
                           Text("Taking dates (start-end)"),
-                          Text(fromdo,
-                              style: FStyles.headline3s),
+                          Text(fromdo, style: FStyles.headline3s),
                           SizedBox(height: context.h * 0.03),
                           Text("How many times"),
                           Text("2 times a day", style: FStyles.headline3s),
                           SizedBox(height: context.h * 0.03),
                           Text("Associated with"),
-                          Text("Multiple sclerosis",
-                              style: FStyles.headline3s),
+                          Text("Multiple sclerosis", style: FStyles.headline3s),
                           SizedBox(height: context.h * 0.03),
                           Text("Comments"),
                           Text("Consume without water. It lessons the effect",
