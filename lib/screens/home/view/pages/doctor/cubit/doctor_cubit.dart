@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:emed/screens/home/cubit/home_cubit.dart';
 import 'package:emed/screens/home/state/home_state.dart';
+import 'package:flutter/cupertino.dart';
 
 class DoctorCubit extends Cubit<DoctorState> {
   DoctorCubit() : super(DoctorState(dataList: HomeCubit.dataList));
@@ -18,6 +19,7 @@ class DoctorCubit extends Cubit<DoctorState> {
           .toLowerCase()
           .contains(text.toString().toLowerCase())) {
         temp.add(HomeCubit.dataList[0][i]);
+        debugPrint(HomeCubit.dataList[0][i]['name'].toString());
         emit(DoctorState(dataList:HomeCubit.dataList));
       }
     }

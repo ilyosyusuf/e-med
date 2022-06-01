@@ -1,10 +1,12 @@
 import 'package:emed/core/constants/colors/color_const.dart';
 import 'package:emed/core/constants/font/font_style.dart';
+import 'package:emed/core/constants/font/radius_const.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/core/icons/icon_const.dart';
 import 'package:emed/screens/home/state/home_state.dart';
 import 'package:emed/screens/home/view/pages/doctor/cubit/doctor_cubit.dart';
 import 'package:emed/screens/home/view/pages/doctor/widget/doctor_widget.dart';
+import 'package:emed/screens/home/view/pages/doctor/widget/new_doctors_widget.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +37,7 @@ class DoctorPage extends StatelessWidget {
                     trailing: InkWell(
                         onTap: () {
                           // NavigationService.instance.pushNamed('/filter');
-                          Navigator.pushNamed(context, 'filter');
+                          // Navigator.pushNamed(context, '/filter');
                         },
                         child: IconConst.filter),
                   ),
@@ -70,13 +72,15 @@ class DoctorPage extends StatelessWidget {
                                         itemCount: datainfo[0].length - 1,
                                         itemBuilder: (context, index) {
                                           return InkWell(
-                                            onTap: () => 
-                                            Navigator.pushNamed(context, '/doctorinfo', arguments: datainfo[0][index]),
+                                          
                                             child: SizedBox(
                                               height: context.h * 0.130,
-                                              child: DoctorsWidget(
-                                                  pic: datainfo[0][index]['pic'],
-                                                  name: datainfo[0][index]['name']
+                                              child: NewDoctorsWidget(
+                                                  pic: datainfo[0][index]
+                                                          ['user_image']
+                                                      .toString(),
+                                                  name: datainfo[0][index]
+                                                          ['name']
                                                       .toString()),
                                             ),
                                           );
@@ -93,7 +97,7 @@ class DoctorPage extends StatelessWidget {
                                     height: context.h * 0.04,
                                   ),
                                   SizedBox(
-                                    height: context.h * 0.560,
+                                    height: context.h * 0.60,
                                     child: ListView.builder(
                                         physics:
                                             const NeverScrollableScrollPhysics(),
@@ -101,10 +105,11 @@ class DoctorPage extends StatelessWidget {
                                         itemBuilder: (context, index) {
                                           return InkWell(
                                             onTap: () {
-                                              Navigator.pushNamed(context, '/doctorinfo', arguments: datainfo[0][index]);
                                             },
-                                            child: DoctorsWidget(
-                                                pic: datainfo[0][index]['pic'],
+                                            child: NewDoctorsWidget(
+                                                pic: datainfo[0][index]
+                                                        ['user_image']
+                                                    .toString(),
                                                 name: datainfo[0][index]['name']
                                                     .toString()),
                                           );
@@ -124,16 +129,14 @@ class DoctorPage extends StatelessWidget {
                                     itemBuilder: (context, index) {
                                       return InkWell(
                                         onTap: () {
-                                          Navigator.pushNamed(context, '/doctorinfo', arguments: context
-                                                .watch<DoctorCubit>()
-                                                .temp
-                                                .toList()[index]);
+                                         
                                         },
-                                        child: DoctorsWidget(
+                                        child: NewDoctorsWidget(
                                             pic: context
                                                 .watch<DoctorCubit>()
                                                 .temp
-                                                .toList()[index]['pic'],
+                                                .toList()[index]['user_image']
+                                                .toString(),
                                             name: context
                                                 .watch<DoctorCubit>()
                                                 .temp

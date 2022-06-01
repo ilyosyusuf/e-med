@@ -1,6 +1,7 @@
 import 'package:emed/core/base/base_view_lock.dart';
 import 'package:emed/screens/home/cubit/home_cubit.dart';
 import 'package:emed/screens/home/state/home_state.dart';
+import 'package:emed/screens/home/view/pages/doctor/view/doctor_page.dart';
 import 'package:emed/screens/home/view/pages/home/homepage/homepage.dart';
 import 'package:emed/screens/home/view/pages/home/treatments/mainsyringe/treatment_view.dart';
 import 'package:emed/widgets/navigationbar/navigation_bar.dart';
@@ -33,7 +34,7 @@ class HomeView extends StatelessWidget {
               child: TreatmentView(),
             );
           } else if (state is DoctorState) {
-            return Container();
+            return DoctorPage(datainfo: state.dataList);
           } else if (state is HospitalState) {
             return const Center(
               child: Text('Hospital Page'),

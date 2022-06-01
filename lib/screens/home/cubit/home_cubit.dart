@@ -54,6 +54,7 @@ class HomeCubit extends Cubit<HomeState> {
     final list = jsonDecode(data) as List;
     // debugPrint(list.toString());
     dataList.add(list);
+    DoctorState(dataList: dataList);
     return list;
   }
 

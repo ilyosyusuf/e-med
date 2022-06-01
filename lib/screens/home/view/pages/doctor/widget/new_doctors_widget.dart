@@ -5,12 +5,10 @@ import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/core/icons/icon_const.dart';
 import 'package:flutter/material.dart';
 
-class DoctorsWidget extends StatelessWidget {
+class NewDoctorsWidget extends StatelessWidget {
   final String name;
   final String pic;
-  final String expert;
-  final String hospital;
-  const DoctorsWidget({this.hospital = '',this.expert = '',required this.pic, required this.name, Key? key})
+  const NewDoctorsWidget({required this.pic, required this.name, Key? key})
       : super(key: key);
 
   @override
@@ -19,7 +17,6 @@ class DoctorsWidget extends StatelessWidget {
         padding: EdgeInsets.only(bottom: context.h * 0.020),
         child: Column(children: [
           ListTile(
-            subtitle: Text('$expert  \n$hospital', style: FStyles.headline4s,),
             trailing: Icon(IconConst.arrow),
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(RadiusConst.extraLarge),
