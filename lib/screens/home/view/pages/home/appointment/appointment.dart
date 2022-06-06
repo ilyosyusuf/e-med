@@ -1,20 +1,15 @@
 import 'package:emed/core/constants/colors/color_const.dart';
 import 'package:emed/core/constants/font/font_style.dart';
-import 'package:emed/core/constants/font/radius_const.dart';
 import 'package:emed/core/extensions/context_extension.dart';
-import 'package:emed/screens/home/cubit/home_cubit.dart';
 import 'package:emed/screens/home/state/home_state.dart';
-import 'package:emed/screens/home/view/pages/home/appointment/appointment_cubit.dart';
-import 'package:emed/services/get_storage_service.dart';
+import 'package:emed/screens/home/view/pages/home/appointment/cubit/appointment_cubit.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/back_button.dart';
 import 'package:emed/widgets/buttons/drop_dow_button.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class AppointmentPage extends StatelessWidget {
   const AppointmentPage({Key? key}) : super(key: key);
@@ -77,20 +72,20 @@ class AppointmentPage extends StatelessWidget {
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose doctor’s workplace...',
-                                items: data.work)),
+                                items: data.hospital)),
                         const Text('Doctor’s position',
                             style: FStyles.headline4sbold),
                         SizedBox(
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose doctor’s position...',
-                                items: data.expert)),
+                                items: data.doctorposition)),
                         const Text('The doctor', style: FStyles.headline4sbold),
                         SizedBox(
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose the doctor you want...',
-                                items: data.name)),
+                                items: data.doctorname)),
                         const Text('Service type',
                             style: FStyles.headline4sbold),
                         SizedBox(
@@ -130,7 +125,36 @@ class AppointmentPage extends StatelessWidget {
                                               'CHOOSE TIME',
                                               style: FStyles.headline4s,
                                             ),
-                                            
+                                            Container(
+                                              height: context.h * 0.35,
+                                              color: ColorConst.kPrimaryColor,
+                                              child: GridView.builder(
+                                                itemCount: data.times.length,
+                                                  gridDelegate:
+                                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                                           crossAxisCount: 2,
+                                                              mainAxisSpacing:
+                                                                  10,
+                                                              crossAxisSpacing:
+                                                                  10,
+                                                                  ),
+                                                  itemBuilder: (__, _) {
+                                                    return InkWell(
+                                                            onTap: () => context
+                                                                .read<
+                                                                    AppointmentCubit>()
+                                                                .collectInfo(
+                                                                    data.times[
+                                                                        _],
+                                                                    [time.day, time.month]),
+                                                            child: Chip(
+                                                              label: Text(
+                                                                  '${data.times[_][0].toString()} : ${data.times[_][1].toString()}'),
+                                                            ));
+                                                    
+                                                    // Text(data.times[0][_]);
+                                                  }),
+                                            )
                                           ],
                                         ),
                                       );
