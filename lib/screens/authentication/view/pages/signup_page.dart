@@ -30,10 +30,11 @@ class SignUpView extends StatelessWidget {
               child: Column(
                 children: [
                   AppBarWidget(
-                    center: Text("Sign Up"),
+                    center: Text("Sign Up", style: FStyles.headline3s,),
                     leading: BackButtonWidgets(ontap: () {
                       context.read<AuthCubit>().changeState(AuthInitial());
                     }),
+                    trailing: SizedBox(width: context.w * 0.15),
                   ),
                   Divider(thickness: 1)
                 ],

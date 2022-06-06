@@ -1,5 +1,5 @@
 import 'package:emed/core/constants/font/font_style.dart';
-import 'package:emed/screens/home/view/pages/home/treatments/details/treatment_details.dart';
+import 'package:emed/screens/home/view/pages/treatments/details/treatment_details.dart';
 import 'package:flutter/material.dart';
 
 class ListTileWidget extends StatelessWidget {

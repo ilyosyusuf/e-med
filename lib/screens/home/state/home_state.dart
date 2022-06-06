@@ -1,3 +1,6 @@
+import 'package:emed/model/doctors_model.dart';
+import 'package:emed/model/hospital_model.dart';
+
 abstract class HomeState {
   HomeState();
 }
@@ -21,6 +24,20 @@ class DoctorState extends HomeState {
 
 class HospitalState extends HomeState {
   HospitalState();
+}
+
+class FilterStateHospital extends HomeState{
+  FilterStateHospital();
+}
+
+class HospitalInfoState extends HomeState{
+  HospitalModel hinfo;
+  HospitalInfoState(this.hinfo);
+}
+
+class DoctorsInfoState extends HomeState{
+  DoctorsModel hinfo;
+  DoctorsInfoState(this.hinfo);
 }
 
 class BookingState extends HomeState{

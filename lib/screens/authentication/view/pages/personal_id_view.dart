@@ -35,10 +35,11 @@ class PersonalIdView extends StatelessWidget {
               child: Column(
                 children: [
                   AppBarWidget(
-                    center: Text("Your Personal ID"),
+                    center: Text("Your Personal ID", style: FStyles.headline3s,),
                     leading: BackButtonWidgets(ontap: () {
                       context.read<AuthCubit>().changeState(AuthSignIn());
                     }),
+                    trailing: SizedBox(width: context.w * 0.15),
                   ),
                   Divider(thickness: 1)
                 ],

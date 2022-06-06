@@ -81,6 +81,7 @@ class AppointmentPage extends StatelessWidget {
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose doctor’s position...',
+                                
                                 items: data.expert)),
                         const Text('The doctor', style: FStyles.headline4sbold),
                         SizedBox(

@@ -14,7 +14,7 @@ class NewDoctorsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(bottom: context.h * 0.020),
+        padding: EdgeInsets.only(bottom: context.h * 0.02),
         child: Column(children: [
           ListTile(
             trailing: Icon(IconConst.arrow),
@@ -35,7 +35,7 @@ class NewDoctorsWidget extends StatelessWidget {
           ),
           Divider(
             indent: context.w * 0.19,
-            color: ColorConst.black,
+            color: ColorConst.grey,
           )
         ])
         );

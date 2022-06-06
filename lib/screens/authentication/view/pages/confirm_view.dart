@@ -32,10 +32,11 @@ class ConFirmationView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppBarWidget(
-              center: Text("Sign Up"),
+              center: Text("Sign Up", style: FStyles.headline3s,),
               leading: BackButtonWidgets(ontap: () {
                 context.read<AuthCubit>().changeState(AuthSignUP());
               }),
+                    trailing: SizedBox(width: context.w * 0.15),
             ),
             SizedBox(height: context.h * 0.060),
             Padding(

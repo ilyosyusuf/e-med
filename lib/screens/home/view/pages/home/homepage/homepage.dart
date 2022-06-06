@@ -54,7 +54,10 @@ class HomePage extends StatelessWidget {
                             )
                           ],
                         ),
-                      )
+                      ),
+                                            SizedBox(
+                        height: context.h * 0.1,
+                      ),
                     ],
                   ),
                 ),
@@ -72,15 +75,33 @@ class HomePage extends StatelessWidget {
                             Navigator.pushNamed(context, '/appointment');
                           },
                         ),
-                        SizedBox(height: context.h * 0.010),
+                        SizedBox(height: context.h * 0.04),
                         const Text(
                           'Today\'s appointments',
                           style: FStyles.headline5s,
                         ),
-                        Container(
-                          height: context.h * 0.4,
-                          color: ColorConst.kPrimaryColor,
+                                              SizedBox(
+                        height: context.h * 0.1,
+                      ),
+                        Center(
+                        child: Column(
+                        children: [
+                          const Text(
+                            'No appointments',
+                            style: FStyles.headline2s,
+                          ),
+                          SizedBox(height: context.h * 0.040),
+                          const Text(
+                            "You haven't added any appointment yet",
+                            style: FStyles.headline4s,
+                            textAlign: TextAlign.center,
+                          )
+                        ],
                         ),
+                      ),
+                                            SizedBox(
+                        height: context.h * 0.1,
+                      ),
                         SizedBox(height: context.h * 0.040),
                         Center(
                           child: ButtonWidgets(

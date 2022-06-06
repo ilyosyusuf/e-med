@@ -119,7 +119,7 @@ class DoctorInfo extends StatelessWidget {
                             SizedBox(
                               height: context.h * 0.1,
                                 child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: info['rating'],itemBuilder: (_, __) {
-                                return Icon(IconConst.star, color: ColorConst.kPrimaryColor,);
+                                return IconConst.star;
                               }),
                             ),
                             SizedBox(height: context.h * 0.1,)
