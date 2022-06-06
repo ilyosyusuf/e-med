@@ -7,11 +7,13 @@ import 'package:emed/screens/home/state/home_state.dart';
 import 'package:emed/screens/home/view/pages/home/appointment/appointment_cubit.dart';
 import 'package:emed/services/get_storage_service.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
+import 'package:emed/widgets/buttons/back_button.dart';
 import 'package:emed/widgets/buttons/drop_dow_button.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class AppointmentPage extends StatelessWidget {
@@ -27,6 +29,7 @@ class AppointmentPage extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ButtonWidgets(
+        height: context.h * 0.07,
         child: const Text('Confirm'),
         onPressed: () {},
       ),
@@ -81,7 +84,6 @@ class AppointmentPage extends StatelessWidget {
                             height: context.h * 0.1,
                             child: DropDownWidget(
                                 text: 'Choose doctor’s position...',
-                                
                                 items: data.expert)),
                         const Text('The doctor', style: FStyles.headline4sbold),
                         SizedBox(
@@ -100,42 +102,44 @@ class AppointmentPage extends StatelessWidget {
                             style: FStyles.headline4sbold),
                         InkWell(
                           onTap: () {
-                            showModalBottomSheet(
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return Container(
-                                    padding: EdgeInsets.all(15.0),
-                                    margin: EdgeInsets.all(15.0),
-                                    decoration: BoxDecoration(
+                            DatePicker.showDatePicker(
+                                minTime: DateTime(2022, 6, 15),
+                                currentTime: DateTime.now(),
+                                onConfirm: (time) => showModalBottomSheet(
+                                    context: context,
+                                    builder: (constext) {
+                                      return Container(
+                                        padding: EdgeInsets.all(15.0),
+                                        height: constext.h * 0.5,
                                         color: ColorConst.white,
-                                        borderRadius: BorderRadius.circular(
-                                            RadiusConst.medium)),
-                                    // child: SfCalendar(
-                                    //   view: CalendarView.week,
-                                    //   onTap: (v) {
-                                    //     context
-                                    //         .read<HomeCubit>()
-                                    //         .changeTypeCalendat();
-                                    //   },
-                                    // ),
-                                    child: CupertinoDatePicker(
-                                      onDateTimeChanged: (v) async {
-                                        await Storageservice.instance.storage
-                                            .write('day', v.day);
-                                        await Storageservice.instance.storage
-                                            .write('houre', v.hour);
-                                        await Storageservice.instance.storage
-                                            .write('month', v.month);
-                                        debugPrint(Storageservice
-                                            .instance.storage
-                                            .read('month')
-                                            .toString());
-                                      },
-                                      mode: CupertinoDatePickerMode.dateAndTime,
-                                    ),
-                                  );
-                                });
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            AppBarWidget(
+                                              leading: BackButtonWidgets(
+                                                ontap: () =>
+                                                    Navigator.pop(context),
+                                              ),
+                                              center: Text(
+                                                '${time.month} | ${time.day} | ${time.year}',
+                                                style: FStyles.headline3s,
+                                              ),
+                                            ),
+                                            const Text(
+                                              'CHOOSE TIME',
+                                              style: FStyles.headline4s,
+                                            ),
+                                            
+                                          ],
+                                        ),
+                                      );
+                                    }),
+                                context,
+                                theme: DatePickerTheme(
+                                    containerHeight: context.h * 0.4,
+                                    backgroundColor: ColorConst.white,
+                                    headerColor: ColorConst.white));
                           },
                           child: SizedBox(
                             height: context.h * 0.1,
