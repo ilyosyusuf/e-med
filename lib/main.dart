@@ -14,8 +14,9 @@ void main() async {
   await Storageservice.instance.storage.write('day', 10);
   await Storageservice.instance.storage.write('houre', 2);
   await Storageservice.instance.storage.write('month', 10);
-    await Hive.initFlutter();
+  await Hive.initFlutter();
   await BoxService.instance.openBox();
+    BoxService.instance.inputInfoBox.clear();
   runApp(const MyApp());
 }
 

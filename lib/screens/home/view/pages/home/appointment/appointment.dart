@@ -3,6 +3,7 @@ import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/screens/home/state/home_state.dart';
 import 'package:emed/screens/home/view/pages/home/appointment/cubit/appointment_cubit.dart';
+import 'package:emed/services/hive_service.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/back_button.dart';
 import 'package:emed/widgets/buttons/drop_dow_button.dart';
@@ -22,12 +23,6 @@ class AppointmentPage extends StatelessWidget {
 
   Scaffold scafold(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: ButtonWidgets(
-        height: context.h * 0.07,
-        child: const Text('Confirm'),
-        onPressed: () {},
-      ),
       body: BlocBuilder<AppointmentCubit, BookingState>(
         builder: (context, state) {
           var data = context.watch<AppointmentCubit>();
@@ -98,7 +93,7 @@ class AppointmentPage extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             DatePicker.showDatePicker(
-                                minTime: DateTime(2022, 6, 15),
+                                minTime: DateTime.now(),
                                 currentTime: DateTime.now(),
                                 onConfirm: (time) => showModalBottomSheet(
                                     context: context,
@@ -129,29 +124,31 @@ class AppointmentPage extends StatelessWidget {
                                               height: context.h * 0.35,
                                               color: ColorConst.kPrimaryColor,
                                               child: GridView.builder(
-                                                itemCount: data.times.length,
+                                                  itemCount: data.times.length,
                                                   gridDelegate:
                                                       const SliverGridDelegateWithFixedCrossAxisCount(
-                                                           crossAxisCount: 2,
-                                                              mainAxisSpacing:
-                                                                  10,
-                                                              crossAxisSpacing:
-                                                                  10,
-                                                                  ),
+                                                    crossAxisCount: 2,
+                                                    mainAxisSpacing: 10,
+                                                    crossAxisSpacing: 10,
+                                                  ),
                                                   itemBuilder: (__, _) {
                                                     return InkWell(
-                                                            onTap: () => context
+                                                        onTap: () =>
+                                                            context
                                                                 .read<
                                                                     AppointmentCubit>()
                                                                 .collectInfo(
                                                                     data.times[
                                                                         _],
-                                                                    [time.day, time.month]),
-                                                            child: Chip(
-                                                              label: Text(
-                                                                  '${data.times[_][0].toString()} : ${data.times[_][1].toString()}'),
-                                                            ));
-                                                    
+                                                                    [
+                                                                  time.day,
+                                                                  time.month
+                                                                ]),
+                                                        child: Chip(
+                                                          label: Text(
+                                                              '${data.times[_][0].toString()} : ${data.times[_][1].toString()}'),
+                                                        ));
+
                                                     // Text(data.times[0][_]);
                                                   }),
                                             )
@@ -173,7 +170,18 @@ class AppointmentPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: context.h * 0.1),
+                        SizedBox(height: context.h * 0.01),
+                        ButtonWidgets(
+                          height: context.h * 0.07,
+                          child: const Text('Confirm'),
+                          onPressed: () async {
+                            await context.read<AppointmentCubit>().addInfo(
+                                data.meetings);
+                            print(data.meetings);
+                            print("Box ${BoxService.instance.inputInfoBox.getAt(0)!['doctor']}");
+                          },
+                        ),
+                        SizedBox(height: context.h * 0.01),
                       ],
                     ),
                   ),

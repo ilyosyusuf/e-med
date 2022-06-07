@@ -2,6 +2,8 @@ import 'package:emed/core/constants/colors/color_const.dart';
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/core/icons/icon_const.dart';
+import 'package:emed/screens/home/view/pages/doctor/widget/doctor_widget.dart';
+import 'package:emed/services/hive_service.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
 import 'package:emed/widgets/calendar_widget.dart';
@@ -55,7 +57,7 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                       ),
-                                            SizedBox(
+                      SizedBox(
                         height: context.h * 0.1,
                       ),
                     ],
@@ -80,28 +82,63 @@ class HomePage extends StatelessWidget {
                           'Today\'s appointments',
                           style: FStyles.headline5s,
                         ),
-                                              SizedBox(
-                        height: context.h * 0.1,
-                      ),
-                        Center(
-                        child: Column(
-                        children: [
-                          const Text(
-                            'No appointments',
-                            style: FStyles.headline2s,
-                          ),
-                          SizedBox(height: context.h * 0.040),
-                          const Text(
-                            "You haven't added any appointment yet",
-                            style: FStyles.headline4s,
-                            textAlign: TextAlign.center,
-                          )
-                        ],
+                        SizedBox(
+                          height: context.h * 0.1,
                         ),
-                      ),
-                                            SizedBox(
-                        height: context.h * 0.1,
-                      ),
+                        SizedBox(
+                          height: context.h * 0.4,
+                          child: BoxService.instance.inputInfoBox.isNotEmpty
+                              ? ListView.builder(
+                                  itemCount:
+                                      BoxService.instance.inputInfoBox.length,
+                                  itemBuilder: (_, __) {
+                                    return 
+                                    // DateTime(
+                                    //             2022,
+                                    //             BoxService.instance.inputInfoBox
+                                    //                 .getAt(__)!['date'][0],
+                                    //             BoxService.instance.inputInfoBox
+                                    //                 .getAt(__)!['date'][1]) ==
+                                    //         DateTime.now()
+                                    //     ? 
+                                        DoctorsWidget(
+                                            hospital: BoxService
+                                                .instance.inputInfoBox
+                                                .getAt(__)!['hospital'].toString(),
+                                            expert: BoxService
+                                                .instance.inputInfoBox
+                                                .getAt(
+                                                    __)!['position'].toString(),
+                                            pic: BoxService
+                                                .instance.inputInfoBox
+                                                .getAt(__)!['picture']
+                                                .toString(),
+                                            name: BoxService
+                                                .instance.inputInfoBox
+                                                .getAt(__)!['doctor']
+                                                .toString());
+                                        // : SizedBox();
+                                  })
+                              : Center(
+                                  child: Column(
+                                    children: [
+                                      const Text(
+                                        'No appointments',
+                                        style: FStyles.headline2s,
+                                      ),
+                                      SizedBox(height: context.h * 0.040),
+                                      const Text(
+                                        "You haven't added any appointment yet",
+                                        style: FStyles.headline4s,
+                                        textAlign: TextAlign.center,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                        ),
+                        SizedBox(
+                          height: context.h * 0.1,
+                        ),
                         SizedBox(height: context.h * 0.040),
                         Center(
                           child: ButtonWidgets(

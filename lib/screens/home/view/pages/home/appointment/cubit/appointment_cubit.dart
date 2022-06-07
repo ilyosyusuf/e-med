@@ -28,7 +28,7 @@ class AppointmentCubit extends Cubit<BookingState> {
     }
     return [];
   }
-  
+
   addInfo(Map info) {
     if (!info.containsValue('')) {
       BoxService.instance.addInfoToBox(info);
@@ -39,7 +39,7 @@ class AppointmentCubit extends Cubit<BookingState> {
     "region": "",
     "district": "",
     "hospital": "",
-    "doctor's position": "",
+    "position": "",
     "doctor": "",
     "picture": '',
     "time": '',
@@ -54,16 +54,25 @@ class AppointmentCubit extends Cubit<BookingState> {
     for (var i = 0; i < HomeCubit.dataList[0].length; i++) {
       if (value == HomeCubit.dataList[0][i]['region']) {
         meetings.update('region', (e) => value);
+        debugPrint(meetings.toString());
       } else if (value == HomeCubit.dataList[0][i]['location']) {
         meetings.update('district', (e) => value);
+        debugPrint(meetings.toString());
+
       } else if (value == HomeCubit.dataList[0][i]['place_work']) {
         meetings.update('hospital', (e) => value);
+        debugPrint(meetings.toString());
+
       } else if (value == HomeCubit.dataList[0][i]['expert']) {
-        meetings.update('doctor\'s position', (e) => value);
+        meetings.update('position', (e) => value);
+        debugPrint(meetings.toString());
+
       } else if (value == HomeCubit.dataList[0][i]['name']) {
         index = i;
         meetings.update('doctor', (e) => value);
-        meetings.update('picture', (e) => HomeCubit.dataList[0][i]['pic']);
+        meetings.update('picture', (e) => HomeCubit.dataList[0][i]['user_image']);
+        debugPrint(meetings.toString());
+
       } else if (value == HomeCubit.dataList[0][i]['time']) {
         debugPrint('TIME');
         meetings.update('time', (e) => value);
