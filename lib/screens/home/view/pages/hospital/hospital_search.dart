@@ -87,7 +87,6 @@ class HospitalSearchView extends StatelessWidget {
                                               const SizedBox(
                                                 width: 8,
                                               ),
-                                              //Here datas should come from database
                                               const Text("Mon - Sat"),
                                             ],
                                           )),
@@ -119,7 +118,6 @@ class HospitalSearchView extends StatelessWidget {
                                     .changeState(HospitalInfoState(hinfo[ind]));
                               },
                             ),
-                            // TextWidget.textwidget(hinfo[ind].name),
                             Text("${hinfo[ind].name}", style: FStyles.headline3s),
                             
                             Text(context.watch<HomeCubit>().hinfo[ind].location, style: FStyles.headline52),
@@ -163,7 +161,6 @@ class HospitalSearchView extends StatelessWidget {
                                               const SizedBox(
                                                 width: 8,
                                               ),
-                                              //Here datas should come from database
                                               const Text("Mon - Sat"),
                                             ],
                                           )),
@@ -195,7 +192,6 @@ class HospitalSearchView extends StatelessWidget {
                                     .changeState(HospitalInfoState(hinfo[ind]));
                               },
                             ),
-                            // TextWidget.textwidget(temp.toList()[ind].name),
                             Text("${temp.toList()[ind].name}", style: FStyles.headline3s,),
                             Text(temp.toList()[ind].location, style: FStyles.headline52,)
                           ],

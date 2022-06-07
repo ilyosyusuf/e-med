@@ -1,5 +1,6 @@
 import 'package:emed/core/constants/colors/color_const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyTextField {
   static textField({
@@ -12,6 +13,7 @@ class MyTextField {
     VoidCallback? onTap,
     FormFieldValidator<String>? validator,
     bool isShown = false,
+    List<TextInputFormatter>? inputFormatters,
   }) {
     return TextFormField(
         controller: controller,
@@ -19,6 +21,7 @@ class MyTextField {
         onChanged: onChanged,
         onTap: onTap,
         obscureText: isShown,
+        inputFormatters: inputFormatters,
         decoration: InputDecoration(
           hintText: text,
           hintStyle: const TextStyle(color: Colors.grey),

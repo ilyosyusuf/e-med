@@ -1,6 +1,7 @@
 import 'package:emed/core/components/check_validator.dart';
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
+import 'package:emed/core/mask/text_input_mask.dart';
 import 'package:emed/screens/authentication/cubit/auth_cubit.dart';
 import 'package:emed/screens/authentication/state/auth_state.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
@@ -63,6 +64,7 @@ class SignInView extends StatelessWidget {
                           MyTextField.textField(
                               text: "Enter your phone number...",
                               controller: phoneController,
+                              inputFormatters: [TextInputMask.phoneMaskFormatter],
                               validator: CheckValidator.phoneValidator),
                           SizedBox(height: context.h * 0.04),
                           const Text("Your password",
@@ -86,9 +88,7 @@ class SignInView extends StatelessWidget {
                             child: Text("Continue"),
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                context
-                                    .read<AuthCubit>()
-                                    .changeState(AuthConfirmation());
+                                Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
                               }
                             },
                             width: context.w,

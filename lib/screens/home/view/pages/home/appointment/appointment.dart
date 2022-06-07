@@ -4,6 +4,7 @@ import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/screens/home/state/home_state.dart';
 import 'package:emed/screens/home/view/pages/home/appointment/cubit/appointment_cubit.dart';
 import 'package:emed/services/hive_service.dart';
+import 'package:emed/widgets/alertdialog/alert_dialog_widget.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/back_button.dart';
 import 'package:emed/widgets/buttons/drop_dow_button.dart';
@@ -177,8 +178,9 @@ class AppointmentPage extends StatelessWidget {
                           onPressed: () async {
                             await context.read<AppointmentCubit>().addInfo(
                                 data.meetings);
+                                AlertDialogWidget.alertDialogWidget(time: DateTime(DateTime.now().year, data.month, data.day).toString(), name: data.doctorname[data.index], context: context, ontap:(){ Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);});
                             print(data.meetings);
-                            print("Box ${BoxService.instance.inputInfoBox.getAt(0)!['doctor']}");
+                            print("Box ${BoxService.instance.inputInfoBox.getAt(0)}");
                           },
                         ),
                         SizedBox(height: context.h * 0.01),

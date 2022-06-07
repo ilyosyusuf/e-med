@@ -18,4 +18,5 @@ class IconConst{
   static SvgPicture star = SvgPicture.asset('assets/icons/star.svg');
   static SvgPicture stargrey = SvgPicture.asset('assets/icons/stargrey.svg');
   static SvgPicture filter = SvgPicture.asset('assets/icons/filter.svg');
+  static SvgPicture done = SvgPicture.asset('assets/icons/done.svg');
 }

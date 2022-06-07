@@ -8,7 +8,6 @@ class MedicalHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // Medical history
       child: SafeArea(
         child: Column(
           children: [

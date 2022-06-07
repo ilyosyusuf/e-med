@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FilterView extends StatelessWidget {
-  // final List dataInfo;
   const FilterView({Key? key,}) : super(key: key);
 
   @override

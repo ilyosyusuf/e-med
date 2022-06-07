@@ -1,4 +1,3 @@
-import 'package:emed/core/constants/colors/color_const.dart';
 import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/core/icons/icon_const.dart';
@@ -92,23 +91,22 @@ class HomePage extends StatelessWidget {
                                   itemCount:
                                       BoxService.instance.inputInfoBox.length,
                                   itemBuilder: (_, __) {
-                                    return 
-                                    // DateTime(
-                                    //             2022,
-                                    //             BoxService.instance.inputInfoBox
-                                    //                 .getAt(__)!['date'][0],
-                                    //             BoxService.instance.inputInfoBox
-                                    //                 .getAt(__)!['date'][1]) ==
-                                    //         DateTime.now()
-                                    //     ? 
-                                        DoctorsWidget(
+                                    return DateTime(
+                                                2022,
+                                                BoxService.instance.inputInfoBox
+                                                    .getAt(__)!['date'][0],
+                                                BoxService.instance.inputInfoBox
+                                                    .getAt(__)!['date'][1]) ==
+                                            DateTime.now()
+                                        ? DoctorsWidget(
                                             hospital: BoxService
                                                 .instance.inputInfoBox
-                                                .getAt(__)!['hospital'].toString(),
+                                                .getAt(__)!['hospital']
+                                                .toString(),
                                             expert: BoxService
                                                 .instance.inputInfoBox
-                                                .getAt(
-                                                    __)!['position'].toString(),
+                                                .getAt(__)!['position']
+                                                .toString(),
                                             pic: BoxService
                                                 .instance.inputInfoBox
                                                 .getAt(__)!['picture']
@@ -116,8 +114,8 @@ class HomePage extends StatelessWidget {
                                             name: BoxService
                                                 .instance.inputInfoBox
                                                 .getAt(__)!['doctor']
-                                                .toString());
-                                        // : SizedBox();
+                                                .toString())
+                                        : SizedBox();
                                   })
                               : Center(
                                   child: Column(

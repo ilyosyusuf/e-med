@@ -2,6 +2,7 @@ import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/core/icons/icon_const.dart';
 import 'package:emed/model/doctors_model.dart';
+import 'package:emed/screens/home/cubit/home_cubit.dart';
 import 'package:emed/screens/home/state/home_state.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/back_button.dart';
@@ -9,7 +10,6 @@ import 'package:emed/widgets/buttons/elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../cubit/home_cubit.dart';
 
 class DoctorInfoView extends StatelessWidget {
   DoctorsModel info;
@@ -45,10 +45,6 @@ class DoctorInfoView extends StatelessWidget {
                     height: context.w * 0.02,
                   ),
                   Text("${info.spes}", style: FStyles.headline4s),
-                  // TextWidget.textwidget(info.spes,
-                  //     color: ColorConst.blackfortext,
-                  //     fontWeight: FontWeight.normal,
-                  //     size: 16),
                   SizedBox(
                     height: context.w * 0.04,
                   ),

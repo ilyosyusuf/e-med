@@ -1,10 +1,6 @@
-import 'package:emed/config/init/navigation/navigator.dart';
-import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/widgets/listtilewidgets/list_tile_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CurrentTreatment extends StatelessWidget {
   const CurrentTreatment({Key? key}) : super(key: key);

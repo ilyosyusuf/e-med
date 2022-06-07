@@ -1,7 +1,6 @@
 import 'package:emed/config/init/navigation/navigator.dart';
 import 'package:emed/config/routes/page_routes.dart';
 import 'package:emed/config/themes/main_theme.dart';
-import 'package:emed/screens/home/view/mainview/main_home_view.dart';
 import 'package:emed/services/get_storage_service.dart';
 import 'package:emed/services/hive_service.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,6 @@ void main() async {
   await Storageservice.instance.storage.write('month', 10);
   await Hive.initFlutter();
   await BoxService.instance.openBox();
-    BoxService.instance.inputInfoBox.clear();
   runApp(const MyApp());
 }
 
