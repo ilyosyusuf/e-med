@@ -9,7 +9,6 @@ class HospitalModel<String> {
   String? workingHour;
   String? locationLink;
   String? website;
-  List<DoctorsModel> dInfo;
 
   HospitalModel(
     this.image,
@@ -20,5 +19,5 @@ class HospitalModel<String> {
     this.workingHour,
     this.locationLink,
     this.website,
-    this.dInfo);
+    );
 }

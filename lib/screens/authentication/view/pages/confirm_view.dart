@@ -2,7 +2,6 @@ import 'package:emed/core/constants/font/font_style.dart';
 import 'package:emed/core/extensions/context_extension.dart';
 import 'package:emed/screens/authentication/cubit/auth_cubit.dart';
 import 'package:emed/screens/authentication/state/auth_state.dart';
-import 'package:emed/screens/authentication/view/pages/signin_view.dart';
 import 'package:emed/widgets/appbar/app_bar_widget.dart';
 import 'package:emed/widgets/buttons/back_button.dart';
 import 'package:emed/widgets/buttons/elevated_button.dart';
